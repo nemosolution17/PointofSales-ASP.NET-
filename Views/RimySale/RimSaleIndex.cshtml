@@ -1,0 +1,37 @@
+﻿@model Salesapp.Models.RimSale
+@{
+    ViewBag.Title = "RimSaleIndex";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="container" style="width:40%; margin-top:2%">
+    @using (Html.BeginForm("RimSaleSaves", "RimySale", FormMethod.Post))
+    {
+        <br />
+        <br />
+        <br />
+        @Html.TextBoxFor(model => model.Rim_date_sold, new { @type = "date", @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Type_id, ViewBag.TypeName as SelectList, "--Select Rim Type--", new { @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Hub_id, ViewBag.HubName as SelectList, "--Select Rim Hub--", new { @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Size_id, ViewBag.SizeNo as SelectList, "--Select Rim Size--", new { @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Peg_id, ViewBag.PegNo as SelectList, "--Select Rim Peg No--", new { @class = "form-control" })
+        <br/>
+        @Html.TextBoxFor(model => model.Rim_quantity_purchase, new { @class = "form-control", @placeholder = "Quantity", @type = "number" })
+        <br />
+        @Html.TextBoxFor(model => model.Rim_unit_price_sold, new { @class = "form-control", @placeholder = "Price Paid for Each Rim" })
+        <br />
+        @Html.DropDownListFor(model => model.Emp_id, ViewBag.EmpName as SelectList, "--Select Worker's Name--", new { @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Cust_id, ViewBag.CustName as SelectList, "--Select Customer's Name--", new { @class = "form-control" })
+        <br/>
+        <input type="Submit" value=" Submit" />  <input type="reset" value=" Reset" />
+    }
+
+</div>
+

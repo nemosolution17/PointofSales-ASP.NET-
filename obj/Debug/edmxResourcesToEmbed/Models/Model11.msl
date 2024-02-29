@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalesLayanModel6StoreContainer" CdmEntityContainer="SalesLayanEntities11">
+    <EntitySetMapping Name="Batt_Return">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Batt_Return">
+        <MappingFragment StoreEntitySet="Batt_Return">
+          <ScalarProperty Name="return_date" ColumnName="return_date" />
+          <ScalarProperty Name="purchase_date" ColumnName="purchase_date" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="battery_maker" ColumnName="battery_maker" />
+          <ScalarProperty Name="batt_id" ColumnName="batt_id" />
+          <ScalarProperty Name="batt_return_id" ColumnName="batt_return_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="batt_sales_record">
+      <EntityTypeMapping TypeName="SalesLayanModel6.batt_sales_record">
+        <MappingFragment StoreEntitySet="batt_sales_record">
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="height_id" ColumnName="height_id" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="batt_date_sold" ColumnName="batt_date_sold" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="batt_quantity_purchased" ColumnName="batt_quantity_purchased" />
+          <ScalarProperty Name="batt_unit_price_purchased" ColumnName="batt_unit_price_purchased" />
+          <ScalarProperty Name="batt_total_price_purchased" ColumnName="batt_total_price_purchased" />
+          <ScalarProperty Name="batt_sale_id" ColumnName="batt_sale_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Batteries">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Battery">
+        <MappingFragment StoreEntitySet="Battery">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="height_id" ColumnName="height_id" />
+          <ScalarProperty Name="Batt_quantity" ColumnName="Batt_quantity" />
+          <ScalarProperty Name="Batt_Unit_Price" ColumnName="Batt_Unit_Price" />
+          <ScalarProperty Name="Total_Price" ColumnName="Total_Price" />
+          <ScalarProperty Name="Batt_description" ColumnName="Batt_description" />
+          <ScalarProperty Name="batt_id" ColumnName="batt_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+          <ScalarProperty Name="cust_phone_no" ColumnName="cust_phone_no" />
+          <ScalarProperty Name="cust_email" ColumnName="cust_email" />
+          <ScalarProperty Name="cust_city" ColumnName="cust_city" />
+          <ScalarProperty Name="cust_state" ColumnName="cust_state" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+          <ScalarProperty Name="emp_phone_no" ColumnName="emp_phone_no" />
+          <ScalarProperty Name="emp_address" ColumnName="emp_address" />
+          <ScalarProperty Name="emp_city" ColumnName="emp_city" />
+          <ScalarProperty Name="emp_state" ColumnName="emp_state" />
+          <ScalarProperty Name="emp_country" ColumnName="emp_country" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="Date_Started" ColumnName="Date_Started" />
+          <ScalarProperty Name="Date_Ended" ColumnName="Date_Ended" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Login">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Employee_Login">
+        <MappingFragment StoreEntitySet="Employee_Login">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="login_id" ColumnName="login_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Heights">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Height">
+        <MappingFragment StoreEntitySet="Height">
+          <ScalarProperty Name="height_id" ColumnName="height_id" />
+          <ScalarProperty Name="height_name" ColumnName="height_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="prod_name" ColumnName="prod_name" />
+          <ScalarProperty Name="prod_model" ColumnName="prod_model" />
+          <ScalarProperty Name="prod_description" ColumnName="prod_description" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+          <ScalarProperty Name="prod_quantity" ColumnName="prod_quantity" />
+          <ScalarProperty Name="prod_unit_cost_price" ColumnName="prod_unit_cost_price" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Category">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Product_Category">
+        <MappingFragment StoreEntitySet="Product_Category">
+          <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+          <ScalarProperty Name="cat_description" ColumnName="cat_description" />
+          <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Return_product">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Return_product">
+        <MappingFragment StoreEntitySet="Return_product">
+          <ScalarProperty Name="return_id" ColumnName="return_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="Purchase_Date" ColumnName="Purchase_Date" />
+          <ScalarProperty Name="Return_Date" ColumnName="Return_Date" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Returns">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Return">
+        <MappingFragment StoreEntitySet="Returns">
+          <ScalarProperty Name="return_id" ColumnName="return_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="Purchase_Date" ColumnName="Purchase_Date" />
+          <ScalarProperty Name="Return_Date" ColumnName="Return_Date" />
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rim_Return">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Rim_Return">
+        <MappingFragment StoreEntitySet="Rim_Return">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="rim_id" ColumnName="rim_id" />
+          <ScalarProperty Name="rim_type" ColumnName="rim_type" />
+          <ScalarProperty Name="rim_return_date" ColumnName="rim_return_date" />
+          <ScalarProperty Name="rim_purchase_date" ColumnName="rim_purchase_date" />
+          <ScalarProperty Name="rim_return_id" ColumnName="rim_return_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rim_Sale_Record">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Rim_Sale_Record">
+        <MappingFragment StoreEntitySet="Rim_Sale_Record">
+          <ScalarProperty Name="rim_date_sold" ColumnName="rim_date_sold" />
+          <ScalarProperty Name="Rim_id" ColumnName="Rim_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="rim_quantity_purchase" ColumnName="rim_quantity_purchase" />
+          <ScalarProperty Name="rim_unit_price_sold" ColumnName="rim_unit_price_sold" />
+          <ScalarProperty Name="rim_total_price_sold" ColumnName="rim_total_price_sold" />
+          <ScalarProperty Name="rim_sales_id" ColumnName="rim_sales_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rims">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Rim">
+        <MappingFragment StoreEntitySet="Rims">
+          <ScalarProperty Name="Rim_size" ColumnName="Rim_size" />
+          <ScalarProperty Name="Rim_type" ColumnName="Rim_type" />
+          <ScalarProperty Name="Car_rims" ColumnName="Car_rims" />
+          <ScalarProperty Name="Rim_quantity" ColumnName="Rim_quantity" />
+          <ScalarProperty Name="Rim_unit_price" ColumnName="Rim_unit_price" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Rim_description" ColumnName="Rim_description" />
+          <ScalarProperty Name="rim_id" ColumnName="rim_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Record">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Sales_Record">
+        <MappingFragment StoreEntitySet="Sales_Record">
+          <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="unit_purchase" ColumnName="unit_purchase" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="sales_id" ColumnName="sales_id" />
+          <ScalarProperty Name="Dates" ColumnName="Dates" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sizes">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Size">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="size_id" ColumnName="size_id" />
+          <ScalarProperty Name="size1" ColumnName="size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="supplier_id" ColumnName="supplier_id" />
+          <ScalarProperty Name="supplier_name" ColumnName="supplier_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SalesLayanModel6.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminals">
+      <EntityTypeMapping TypeName="SalesLayanModel6.Terminal">
+        <MappingFragment StoreEntitySet="Terminal">
+          <ScalarProperty Name="terminal_id" ColumnName="terminal_id" />
+          <ScalarProperty Name="terminal_name" ColumnName="terminal_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

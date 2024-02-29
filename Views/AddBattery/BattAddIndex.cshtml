@@ -1,0 +1,32 @@
+﻿@model Salesapp.Models.AddyBattery
+@{
+    ViewBag.Title = "BattAddIndex";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="container" style="width:40%; margin-top:2%">
+    @using (Html.BeginForm("BattAddSave", "AddBattery", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.Date, new { @type = "date", @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Supplier_id, ViewBag.SupplierName as SelectList, "--Select Maker--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Size_id, ViewBag.SizeName as SelectList, "--Select Size (ahms)--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Terminal_id, ViewBag.TerminalName as SelectList, "--Select Terminal--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Height_id, ViewBag.HeightName as SelectList, "--Select Height--", new { @class = "form-control" })
+        <br/>
+        @Html.TextBoxFor(model => model.Batt_quantity, new { @class = "form-control", @placeholder = "Quantity", @type = "number" })
+        <br/>
+        @Html.TextBoxFor(model => model.Batt_Unit_Price, new { @class = "form-control", @placeholder = "Unit Price", @type = "number" })
+        <br/>
+        @Html.TextBoxFor(model => model.Batt_description, new { @class = "form-control", @placeholder = "Description (Optional)" })
+        <br/>
+        <input type="Submit" value=" Submit" />  <input type="reset" value=" Reset" />
+    }
+
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model Salesapp.Models.RimReturn
+@{
+    ViewBag.Title = "RimReturnIndex";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="container" style="width:40%; margin-top:2%">
+    @using (Html.BeginForm("RimReturnSave", "RimReturn", FormMethod.Post))
+    {
+            <br />
+            <br />
+            <br />
+            @Html.Label("StudentName", "Returning Date:") 
+            @Html.TextBoxFor(model => model.ReturnDate, new { @type = "date", @class = "form-control" })
+            <br />
+            @Html.Label("StudentName", "Purchased Date:")
+            @Html.TextBoxFor(model => model.PurchaseDate, new { @type = "date", @class = "form-control" })
+            <br />
+            @Html.DropDownListFor(model => model.Type_id, ViewBag.TypeName as SelectList, "--Select Rim Type--", new { @class = "form-control" })
+            <br />
+            @Html.DropDownListFor(model => model.Hub_id, ViewBag.HubName as SelectList, "--Select Rim Hub--", new { @class = "form-control" })
+            <br />
+            @Html.DropDownListFor(model => model.Size_id, ViewBag.SizeNo as SelectList, "--Select Rim Size--", new { @class = "form-control" })
+            <br />
+            @Html.DropDownListFor(model => model.Peg_id, ViewBag.PegNo as SelectList, "--Select Rim Peg Number--", new { @class = "form-control" })
+            <br/>
+            @Html.TextBoxFor(model => model.RimQuantReturn, new { @class = "form-control", @placeholder = "Quantity to Return", @type = "number" })
+            <br />
+           
+            @Html.DropDownListFor(model => model.Emp_id, ViewBag.EmpName as SelectList, "--Select Worker's Name--", new { @class = "form-control" })
+            <br />
+            
+            @Html.DropDownListFor(model => model.Cust_id, ViewBag.CustName as SelectList, "--Select Customer Name--", new { @class = "form-control" })
+            <br />
+            <input type="Submit" value=" Submit" />  <input type="reset" value=" Reset" />
+    }
+</div>
+
+{
+@TempData["status"];
+}
+

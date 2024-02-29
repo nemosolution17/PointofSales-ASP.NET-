@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesLayanModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Batt_Return">
+    <Key>
+      <PropertyRef Name="batt_return_id" />
+    </Key>
+    <Property Name="return_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="purchase_date" Type="DateTime" Precision="0" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="battery_maker" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="batt_id" Type="Int16" Nullable="false" />
+    <Property Name="batt_return_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Battery" Relationship="Self.FK_Batt_Return_Battery" FromRole="Batt_Return" ToRole="Battery" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Batt_Return_Customers" FromRole="Batt_Return" ToRole="Customers" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Batt_Return_Employee" FromRole="Batt_Return" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="batt_sales_record">
+    <Key>
+      <PropertyRef Name="batt_sale_id" />
+    </Key>
+    <Property Name="terminal_id" Type="Int16" Nullable="false" />
+    <Property Name="height_id" Type="Int16" Nullable="false" />
+    <Property Name="supplier_id" Type="Int16" Nullable="false" />
+    <Property Name="batt_date_sold" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="batt_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="batt_quantity_purchased" Type="Int32" Nullable="false" />
+    <Property Name="batt_unit_price_purchased" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="batt_total_price_purchased" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="batt_sale_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Battery" Relationship="Self.FK_batt_sales_record_Battery" FromRole="batt_sales_record" ToRole="Battery" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_batt_sales_record_Customers" FromRole="batt_sales_record" ToRole="Customers" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_batt_sales_record_Employee" FromRole="batt_sales_record" ToRole="Employee" />
+    <NavigationProperty Name="Height" Relationship="Self.FK_batt_sales_record_Height" FromRole="batt_sales_record" ToRole="Height" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_batt_sales_record_Supplier" FromRole="batt_sales_record" ToRole="Supplier" />
+    <NavigationProperty Name="Terminal" Relationship="Self.FK_batt_sales_record_Terminal" FromRole="batt_sales_record" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Battery">
+    <Key>
+      <PropertyRef Name="batt_id" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="supplier_id" Type="Int16" Nullable="false" />
+    <Property Name="Size" Type="Int16" Nullable="false" />
+    <Property Name="terminal_id" Type="Int16" Nullable="false" />
+    <Property Name="height_id" Type="Int16" Nullable="false" />
+    <Property Name="Batt_quantity" Type="Int16" Nullable="false" />
+    <Property Name="Batt_Unit_Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total_Price" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Batt_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="batt_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Batt_Return" Relationship="Self.FK_Batt_Return_Battery" FromRole="Battery" ToRole="Batt_Return" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Battery" FromRole="Battery" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Height" Relationship="Self.FK_Battery_Height" FromRole="Battery" ToRole="Height" />
+    <NavigationProperty Name="Supplier" Relationship="Self.FK_Battery_Supplier" FromRole="Battery" ToRole="Supplier" />
+    <NavigationProperty Name="Terminal" Relationship="Self.FK_Battery_Terminal" FromRole="Battery" ToRole="Terminal" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cust_phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cust_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cust_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cust_state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Batt_Return" Relationship="Self.FK_Batt_Return_Customers" FromRole="Customers" ToRole="Batt_Return" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Customers" FromRole="Customers" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Rim_Return" Relationship="Self.FK_Rim_Return_Customers" FromRole="Customers" ToRole="Rim_Return" />
+    <NavigationProperty Name="Rim_Sale_Record" Relationship="Self.FK_Rim_Sale_Record_Customers" FromRole="Customers" ToRole="Rim_Sale_Record" />
+    <NavigationProperty Name="Sales_Record" Relationship="Self.FK_Sales_Record_Customers" FromRole="Customers" ToRole="Sales_Record" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="emp_id" />
+    </Key>
+    <Property Name="emp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Started" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Date_Ended" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Batt_Return" Relationship="Self.FK_Batt_Return_Employee" FromRole="Employee" ToRole="Batt_Return" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Employee" FromRole="Employee" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Employee_Login" Relationship="Self.FK_Employee_Login_Employee" FromRole="Employee" ToRole="Employee_Login" />
+    <NavigationProperty Name="Rim_Return" Relationship="Self.FK_Rim_Return_Employee" FromRole="Employee" ToRole="Rim_Return" />
+    <NavigationProperty Name="Rim_Sale_Record" Relationship="Self.FK_Rim_Sale_Record_Employee" FromRole="Employee" ToRole="Rim_Sale_Record" />
+    <NavigationProperty Name="Sales_Record" Relationship="Self.FK_Sales_Record_Employee" FromRole="Employee" ToRole="Sales_Record" />
+  </EntityType>
+  <EntityType Name="Employee_Login">
+    <Key>
+      <PropertyRef Name="login_id" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="login_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Login_Employee" FromRole="Employee_Login" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Height">
+    <Key>
+      <PropertyRef Name="height_id" />
+    </Key>
+    <Property Name="height_id" Type="Int16" Nullable="false" />
+    <Property Name="height_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Height" FromRole="Height" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Batteries" Relationship="Self.FK_Battery_Height" FromRole="Height" ToRole="Battery" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="prod_id" />
+    </Key>
+    <Property Name="prod_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prod_model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prod_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cat_id" Type="Int16" Nullable="false" />
+    <Property Name="prod_quantity" Type="Int16" Nullable="false" />
+    <Property Name="prod_unit_cost_price" Type="Double" Nullable="false" />
+    <Property Name="prod_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product_Category" Relationship="Self.FK_Product_Product_Category" FromRole="Product" ToRole="Product_Category" />
+    <NavigationProperty Name="Return_product" Relationship="Self.FK_Return_product_Product" FromRole="Product" ToRole="Return_product" />
+    <NavigationProperty Name="Sales_Record" Relationship="Self.FK_Sales_Record_Product" FromRole="Product" ToRole="Sales_Record" />
+  </EntityType>
+  <EntityType Name="Product_Category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cat_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cat_id" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Product_Category" FromRole="Product_Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Return_product">
+    <Key>
+      <PropertyRef Name="return_id" />
+    </Key>
+    <Property Name="return_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="Purchase_Date" Type="DateTime" Precision="0" />
+    <Property Name="Return_Date" Type="DateTime" Precision="0" />
+    <Property Name="prod_id" Type="Int16" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Return_product_Product" FromRole="Return_product" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Return">
+    <Key>
+      <PropertyRef Name="return_id" />
+    </Key>
+    <Property Name="return_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="Purchase_Date" Type="DateTime" Precision="0" />
+    <Property Name="Return_Date" Type="DateTime" Precision="0" />
+    <Property Name="prod_id" Type="Int16" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rim_Return">
+    <Key>
+      <PropertyRef Name="rim_return_id" />
+    </Key>
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="rim_id" Type="Int16" Nullable="false" />
+    <Property Name="rim_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rim_return_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="rim_purchase_date" Type="DateTime" Precision="0" />
+    <Property Name="rim_return_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Rim_Return_Customers" FromRole="Rim_Return" ToRole="Customers" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Rim_Return_Employee" FromRole="Rim_Return" ToRole="Employee" />
+    <NavigationProperty Name="Rim" Relationship="Self.FK_Rim_Return_Rims" FromRole="Rim_Return" ToRole="Rims" />
+  </EntityType>
+  <EntityType Name="Rim_Sale_Record">
+    <Key>
+      <PropertyRef Name="rim_sales_id" />
+    </Key>
+    <Property Name="rim_date_sold" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Rim_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="rim_quantity_purchase" Type="Int16" Nullable="false" />
+    <Property Name="rim_unit_price_sold" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="rim_total_price_sold" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="rim_sales_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Rim_Sale_Record_Customers" FromRole="Rim_Sale_Record" ToRole="Customers" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Rim_Sale_Record_Employee" FromRole="Rim_Sale_Record" ToRole="Employee" />
+    <NavigationProperty Name="Rim" Relationship="Self.FK_Rim_Sale_Record_Rims" FromRole="Rim_Sale_Record" ToRole="Rims" />
+  </EntityType>
+  <EntityType Name="Rim">
+    <Key>
+      <PropertyRef Name="rim_id" />
+    </Key>
+    <Property Name="Rim_size" Type="Int16" Nullable="false" />
+    <Property Name="Rim_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Car_rims" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rim_quantity" Type="Int16" Nullable="false" />
+    <Property Name="Rim_unit_price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Rim_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="rim_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Rim_Return" Relationship="Self.FK_Rim_Return_Rims" FromRole="Rims" ToRole="Rim_Return" />
+    <NavigationProperty Name="Rim_Sale_Record" Relationship="Self.FK_Rim_Sale_Record_Rims" FromRole="Rims" ToRole="Rim_Sale_Record" />
+  </EntityType>
+  <EntityType Name="Sales_Record">
+    <Key>
+      <PropertyRef Name="sales_id" />
+    </Key>
+    <Property Name="prod_id" Type="Int16" Nullable="false" />
+    <Property Name="cust_id" Type="Int16" Nullable="false" />
+    <Property Name="emp_id" Type="Int16" Nullable="false" />
+    <Property Name="unit_purchase" Type="Int16" Nullable="false" />
+    <Property Name="unit_price" Type="Double" Nullable="false" />
+    <Property Name="total_price" Type="Double" Nullable="false" />
+    <Property Name="sales_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dates" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Sales_Record_Customers" FromRole="Sales_Record" ToRole="Customers" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Sales_Record_Employee" FromRole="Sales_Record" ToRole="Employee" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Record_Product" FromRole="Sales_Record" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="supplier_id" />
+    </Key>
+    <Property Name="supplier_id" Type="Int16" Nullable="false" />
+    <Property Name="supplier_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Supplier" FromRole="Supplier" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Batteries" Relationship="Self.FK_Battery_Supplier" FromRole="Supplier" ToRole="Battery" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Terminal">
+    <Key>
+      <PropertyRef Name="terminal_id" />
+    </Key>
+    <Property Name="terminal_id" Type="Int16" Nullable="false" />
+    <Property Name="terminal_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="batt_sales_record" Relationship="Self.FK_batt_sales_record_Terminal" FromRole="Terminal" ToRole="batt_sales_record" />
+    <NavigationProperty Name="Batteries" Relationship="Self.FK_Battery_Terminal" FromRole="Terminal" ToRole="Battery" />
+  </EntityType>
+  <Association Name="FK_Batt_Return_Battery">
+    <End Role="Battery" Type="Self.Battery" Multiplicity="1" />
+    <End Role="Batt_Return" Type="Self.Batt_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Battery">
+        <PropertyRef Name="batt_id" />
+      </Principal>
+      <Dependent Role="Batt_Return">
+        <PropertyRef Name="batt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batt_Return_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Batt_Return" Type="Self.Batt_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="Batt_Return">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Batt_Return_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Batt_Return" Type="Self.Batt_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="Batt_Return">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Battery">
+    <End Role="Battery" Type="Self.Battery" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Battery">
+        <PropertyRef Name="batt_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="batt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Height">
+    <End Role="Height" Type="Self.Height" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Height">
+        <PropertyRef Name="height_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="height_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_batt_sales_record_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="batt_sales_record" Type="Self.batt_sales_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="terminal_id" />
+      </Principal>
+      <Dependent Role="batt_sales_record">
+        <PropertyRef Name="terminal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Battery_Height">
+    <End Role="Height" Type="Self.Height" Multiplicity="1" />
+    <End Role="Battery" Type="Self.Battery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Height">
+        <PropertyRef Name="height_id" />
+      </Principal>
+      <Dependent Role="Battery">
+        <PropertyRef Name="height_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Battery_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Battery" Type="Self.Battery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="supplier_id" />
+      </Principal>
+      <Dependent Role="Battery">
+        <PropertyRef Name="supplier_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Battery_Terminal">
+    <End Role="Terminal" Type="Self.Terminal" Multiplicity="1" />
+    <End Role="Battery" Type="Self.Battery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminal">
+        <PropertyRef Name="terminal_id" />
+      </Principal>
+      <Dependent Role="Battery">
+        <PropertyRef Name="terminal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Return_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Rim_Return" Type="Self.Rim_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="Rim_Return">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Sale_Record_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Rim_Sale_Record" Type="Self.Rim_Sale_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="Rim_Sale_Record">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Record_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Sales_Record" Type="Self.Sales_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="Sales_Record">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Login_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Login" Type="Self.Employee_Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="Employee_Login">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Return_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Rim_Return" Type="Self.Rim_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="Rim_Return">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Sale_Record_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Rim_Sale_Record" Type="Self.Rim_Sale_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="Rim_Sale_Record">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Record_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Sales_Record" Type="Self.Sales_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="emp_id" />
+      </Principal>
+      <Dependent Role="Sales_Record">
+        <PropertyRef Name="emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Product_Category">
+    <End Role="Product_Category" Type="Self.Product_Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="cat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Return_product_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Return_product" Type="Self.Return_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="Return_product">
+        <PropertyRef Name="prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Record_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Sales_Record" Type="Self.Sales_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="prod_id" />
+      </Principal>
+      <Dependent Role="Sales_Record">
+        <PropertyRef Name="prod_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Return_Rims">
+    <End Role="Rims" Type="Self.Rim" Multiplicity="1" />
+    <End Role="Rim_Return" Type="Self.Rim_Return" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rims">
+        <PropertyRef Name="rim_id" />
+      </Principal>
+      <Dependent Role="Rim_Return">
+        <PropertyRef Name="rim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rim_Sale_Record_Rims">
+    <End Role="Rims" Type="Self.Rim" Multiplicity="1" />
+    <End Role="Rim_Sale_Record" Type="Self.Rim_Sale_Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rims">
+        <PropertyRef Name="rim_id" />
+      </Principal>
+      <Dependent Role="Rim_Sale_Record">
+        <PropertyRef Name="Rim_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalesLayanEntities10" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Batt_Return" EntityType="Self.Batt_Return" />
+    <EntitySet Name="batt_sales_record" EntityType="Self.batt_sales_record" />
+    <EntitySet Name="Batteries" EntityType="Self.Battery" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Employee_Login" EntityType="Self.Employee_Login" />
+    <EntitySet Name="Heights" EntityType="Self.Height" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Product_Category" EntityType="Self.Product_Category" />
+    <EntitySet Name="Return_product" EntityType="Self.Return_product" />
+    <EntitySet Name="Returns" EntityType="Self.Return" />
+    <EntitySet Name="Rim_Return" EntityType="Self.Rim_Return" />
+    <EntitySet Name="Rim_Sale_Record" EntityType="Self.Rim_Sale_Record" />
+    <EntitySet Name="Rims" EntityType="Self.Rim" />
+    <EntitySet Name="Sales_Record" EntityType="Self.Sales_Record" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Terminals" EntityType="Self.Terminal" />
+    <AssociationSet Name="FK_Batt_Return_Battery" Association="Self.FK_Batt_Return_Battery">
+      <End Role="Battery" EntitySet="Batteries" />
+      <End Role="Batt_Return" EntitySet="Batt_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batt_Return_Customers" Association="Self.FK_Batt_Return_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Batt_Return" EntitySet="Batt_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Batt_Return_Employee" Association="Self.FK_Batt_Return_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Batt_Return" EntitySet="Batt_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Battery" Association="Self.FK_batt_sales_record_Battery">
+      <End Role="Battery" EntitySet="Batteries" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Customers" Association="Self.FK_batt_sales_record_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Employee" Association="Self.FK_batt_sales_record_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Height" Association="Self.FK_batt_sales_record_Height">
+      <End Role="Height" EntitySet="Heights" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Supplier" Association="Self.FK_batt_sales_record_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_batt_sales_record_Terminal" Association="Self.FK_batt_sales_record_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="batt_sales_record" EntitySet="batt_sales_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Battery_Height" Association="Self.FK_Battery_Height">
+      <End Role="Height" EntitySet="Heights" />
+      <End Role="Battery" EntitySet="Batteries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Battery_Supplier" Association="Self.FK_Battery_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Battery" EntitySet="Batteries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Battery_Terminal" Association="Self.FK_Battery_Terminal">
+      <End Role="Terminal" EntitySet="Terminals" />
+      <End Role="Battery" EntitySet="Batteries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Return_Customers" Association="Self.FK_Rim_Return_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Rim_Return" EntitySet="Rim_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Sale_Record_Customers" Association="Self.FK_Rim_Sale_Record_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Rim_Sale_Record" EntitySet="Rim_Sale_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Record_Customers" Association="Self.FK_Sales_Record_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Sales_Record" EntitySet="Sales_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Login_Employee" Association="Self.FK_Employee_Login_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee_Login" EntitySet="Employee_Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Return_Employee" Association="Self.FK_Rim_Return_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Rim_Return" EntitySet="Rim_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Sale_Record_Employee" Association="Self.FK_Rim_Sale_Record_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Rim_Sale_Record" EntitySet="Rim_Sale_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Record_Employee" Association="Self.FK_Sales_Record_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Sales_Record" EntitySet="Sales_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Product_Category" Association="Self.FK_Product_Product_Category">
+      <End Role="Product_Category" EntitySet="Product_Category" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Return_product_Product" Association="Self.FK_Return_product_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Return_product" EntitySet="Return_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Record_Product" Association="Self.FK_Sales_Record_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Sales_Record" EntitySet="Sales_Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Return_Rims" Association="Self.FK_Rim_Return_Rims">
+      <End Role="Rims" EntitySet="Rims" />
+      <End Role="Rim_Return" EntitySet="Rim_Return" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rim_Sale_Record_Rims" Association="Self.FK_Rim_Sale_Record_Rims">
+      <End Role="Rims" EntitySet="Rims" />
+      <End Role="Rim_Sale_Record" EntitySet="Rim_Sale_Record" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4f6e53ade6ec4b9b91f30798871ca53e" Name="Diagram1">
+        <EntityTypeShape EntityType="SalesLayanModel5.Batt_Return" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.batt_sales_record" Width="1.5" PointX="7" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Battery" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Customer" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Employee" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Employee_Login" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Height" Width="1.5" PointX="1.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Product" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Product_Category" Width="1.5" PointX="1.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Return_product" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Return" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Rim_Return" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Rim_Sale_Record" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Rim" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Sales_Record" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Supplier" Width="1.5" PointX="1.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.sysdiagram" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesLayanModel5.Terminal" Width="1.5" PointX="1.5" PointY="29.875" IsExpanded="true" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Batt_Return_Battery" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Batt_Return_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Batt_Return_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Battery" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Height" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_batt_sales_record_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Battery_Height" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Battery_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Battery_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Return_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Sale_Record_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Sales_Record_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Employee_Login_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Return_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Sale_Record_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Sales_Record_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Product_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Return_product_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Sales_Record_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Return_Rims" ManuallyRouted="false" />
+        <AssociationConnector Association="SalesLayanModel5.FK_Rim_Sale_Record_Rims" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

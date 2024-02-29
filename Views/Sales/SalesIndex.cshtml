@@ -1,0 +1,36 @@
+﻿@model Salesapp.Models.SalesForm
+@{
+    ViewBag.Title = "SalesIndex";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<div class="container" style="width:40%; margin-top:2%">
+    @using (Html.BeginForm("SaveSales", "Sales", FormMethod.Post))
+    {
+        
+        @Html.DropDownListFor(model => model.Prod_id, ViewBag.SalesName as SelectList, "--Select Product--", new { id = "ProdIds", @class = "form-control" })
+        <br />
+
+        @Html.TextBoxFor(model => model.Unit_purchase, new { id = "quant", @class = "form-control", @placeholder = "Amount Purchase" , type = "number" })
+        <br />
+
+        @Html.TextBoxFor(model => model.Unit_price, new { @class = "form-control", @placeholder = "Unit Price" , type = "number" })
+        <br />
+        @Html.DropDownListFor(model =>model.Emp_id, ViewBag.EmpName as SelectList, "--select Employee--", new { @class = "form-control" })
+        <br />
+        //@Html.TextAreaFor(model => model.Dates, new{@placeholder = "Date", @type = "date", @Value = Model.Dates.ToString("yyyy-MM-dd") })
+        @Html.EditorFor(model => model.Dates, new { @type = "date" })
+        <br />
+        <br />
+
+        @Html.DropDownListFor(model => model.Cust_id, ViewBag.CustName as SelectList, "--Select Customer--", new { @class = "form-control" })
+        <br />
+        <input type="Submit" value=" Submit" />  <input type="reset" value=" Reset" />
+    }
+</div>
+
+
+

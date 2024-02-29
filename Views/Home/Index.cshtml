@@ -1,0 +1,48 @@
+﻿@model Salesapp.Models.ProductForm
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+
+
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<div class="container" style="width:40%; margin-top:2%">
+
+    @using (Html.BeginForm("SaveRecord", "Home", FormMethod.Post))
+    {
+
+    @Html.DropDownListFor(model => model.Cat_id, ViewBag.ProductName as SelectList, "--Select--", new { @class = "form-control" }) 
+    <br />
+    @Html.TextBoxFor(model => model.Prod_name, new { @class = "form-control", @placeholder = "Prodcut Name" })
+    <br />
+   // @Html.TextBoxFor(model => model.Cat_name, new { @class = "form-control", @placeholder = "Category Name" })
+   
+    @Html.TextBoxFor(model => model.Prod_model, new { @class = "form-control", @placeholder = "Prodcut Model" })
+    <br />
+    @Html.TextBoxFor(model => model.Prod_quantity, new { @class = "form-control", @placeholder = "Product Quantity" })
+    <br />
+    @Html.TextBoxFor(model => model.Prod_unit_cost_price, new { @class = "form-control", @placeholder = "Product Price" })
+    <br />
+    @Html.TextBoxFor(model => model.Prod_description, new { @class = "form-control", @placeholder = "Product Description" })
+    <br />
+    <input type="Submit" value=" Submit"/>  <input type="reset" value=" Reset"/>
+
+
+    }
+  
+
+</div>
+
+{
+<center>@TempData["status"];
+
+</center>
+
+}
+
+
+
+
+

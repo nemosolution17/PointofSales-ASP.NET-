@@ -1,0 +1,39 @@
+﻿@model Salesapp.Models.AddyRim
+
+@{
+    ViewBag.Title = "AddyRimIndex";
+    Layout = null;
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="container" style="width:40%; margin-top:2%">
+    @using (Html.BeginForm("AddyRimSave", "AddyRims", FormMethod.Post))
+    {
+        <br />
+        <br />
+        <br />
+        @Html.TextBoxFor(model => model.Date, new { @type = "date", @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.Type_id, ViewBag.TypeName as SelectList, "--Select Type--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Hub_id, ViewBag.HubName as SelectList, "--Select Hub--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Size_id, ViewBag.SizeNo as SelectList, "--Select Size--", new { @class = "form-control" })
+        <br/>
+        @Html.DropDownListFor(model => model.Peg_id, ViewBag.PegNo as SelectList, "--Select Peg No--", new { @class = "form-control" })
+        <br/>
+        @Html.TextBoxFor(model => model.Rim_quantity, new { @class = "form-control", @placeholder = "Quantity", @type = "number" })
+        <br />
+        @Html.TextBoxFor(model => model.Rim_unit_price, new { @class = "form-control", @placeholder = "Unit Price", @type = "number" })
+        <br />
+        @Html.TextBoxFor(model => model.Rim_description, new { @class = "form-control", @placeholder = "Description" })
+        <br />
+        <input type="Submit" value=" Submit" />  <input type="reset" value=" Reset" />
+        <br />
+        <br />
+        <br />
+        <br />
+    }
+
+</div>
